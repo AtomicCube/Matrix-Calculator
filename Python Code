@@ -1,0 +1,30 @@
+matrix = []
+
+rows = int(input("How many rows does this matrix have? "))
+cols = int(input("How many colums does this matrix have? "))
+                
+for x in range(rows):
+    num = []
+    numbers = input("What are the numbers in row " + str(x + 1) + "? ")
+    numbers = str(numbers)
+    for y in range(len(numbers)):
+        num.append(numbers[y])
+    matrix.append(num)                                                      #Row is the index of the matrix list and column is the index of the num list.
+def print_matrix(mat):
+    for row in mat:
+        print(" ".join(row))
+
+print_matrix(matrix)
+
+#determinant
+
+if rows == len(matrix):
+    def determinant(row_1, row_2):
+        row_1 = [int(i) for i in row_1]
+        row_2 = [int(i) for i in row_2]
+        det = (row_1[0] * row_2[1]) - (row_1[1] * row_2[0])
+        print("Determinant = " + str(det))
+else:
+    print("This is not a square matrix. A determinant cannot be computed")
+
+print(determinant(matrix[0], matrix[1]))
